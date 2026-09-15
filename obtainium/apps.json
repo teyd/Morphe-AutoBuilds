@@ -1,0 +1,50 @@
+[
+  {
+    "id": "com.google.android.youtube",
+    "url": "https://github.com/teyd/Morphe-AutoBuilds/releases/latest",
+    "author": "teyd",
+    "name": "YouTube (Morphe)",
+    "overrideSource": "HTML",
+    "additionalSettings": "{\"apkFilterRegEx\":\"youtube-arm64-v8a-morphe-v.*\\\\.apk\",\"customLinkFilterRegex\":\"youtube-arm64-v8a-morphe-v.*\\\\.apk\",\"versionExtractionRegEx\":\"-v(\\\\d+\\\\.\\\\d[^/]*)\\\\.apk$\",\"matchGroupToUse\":\"1\"}"
+  },
+  {
+    "id": "com.google.android.apps.youtube.music",
+    "url": "https://github.com/teyd/Morphe-AutoBuilds/releases/latest",
+    "author": "teyd",
+    "name": "YouTube Music (Morphe)",
+    "overrideSource": "HTML",
+    "additionalSettings": "{\"apkFilterRegEx\":\"youtube-music-arm64-v8a-morphe-v.*\\\\.apk\",\"customLinkFilterRegex\":\"youtube-music-arm64-v8a-morphe-v.*\\\\.apk\",\"versionExtractionRegEx\":\"-v(\\\\d+\\\\.\\\\d[^/]*)\\\\.apk$\",\"matchGroupToUse\":\"1\"}"
+  },
+  {
+    "id": "com.reddit.frontpage",
+    "url": "https://github.com/teyd/Morphe-AutoBuilds/releases/latest",
+    "author": "teyd",
+    "name": "Reddit (Morphe)",
+    "overrideSource": "HTML",
+    "additionalSettings": "{\"apkFilterRegEx\":\"reddit-arm64-v8a-morphe-v.*\\\\.apk\",\"customLinkFilterRegex\":\"reddit-arm64-v8a-morphe-v.*\\\\.apk\",\"versionExtractionRegEx\":\"-v(\\\\d+\\\\.\\\\d[^/]*)\\\\.apk$\",\"matchGroupToUse\":\"1\"}"
+  },
+  {
+    "id": "com.twitter.android",
+    "url": "https://github.com/teyd/Morphe-AutoBuilds/releases/latest",
+    "author": "teyd",
+    "name": "X (Twitter) (Morphe)",
+    "overrideSource": "HTML",
+    "additionalSettings": "{\"apkFilterRegEx\":\"x-new-arm64-v8a-piko-patches-v.*\\\\.apk\",\"customLinkFilterRegex\":\"x-new-arm64-v8a-piko-patches-v.*\\\\.apk\",\"versionExtractionRegEx\":\"-v(\\\\d+\\\\.\\\\d[^/]*)\\\\.apk$\",\"matchGroupToUse\":\"1\"}"
+  },
+  {
+    "id": "com.instagram.android",
+    "url": "https://github.com/teyd/Morphe-AutoBuilds/releases/latest",
+    "author": "teyd",
+    "name": "Instagram (Morphe)",
+    "overrideSource": "HTML",
+    "additionalSettings": "{\"apkFilterRegEx\":\"instagram-arm64-v8a-piko-patches-v.*\\\\.apk\",\"customLinkFilterRegex\":\"instagram-arm64-v8a-piko-patches-v.*\\\\.apk\",\"versionExtractionRegEx\":\"-v(\\\\d+\\\\.\\\\d[^/]*)\\\\.apk$\",\"matchGroupToUse\":\"1\"}"
+  },
+  {
+    "id": "com.zhiliaoapp.musically",
+    "url": "https://github.com/teyd/Morphe-AutoBuilds/releases/latest",
+    "author": "teyd",
+    "name": "TikTok (Morphe)",
+    "overrideSource": "HTML",
+    "additionalSettings": "{\"apkFilterRegEx\":\"tiktok-arm64-v8a-morphe-patches-v.*\\\\.apk\",\"customLinkFilterRegex\":\"tiktok-arm64-v8a-morphe-patches-v.*\\\\.apk\",\"versionExtractionRegEx\":\"-v(\\\\d+\\\\.\\\\d[^/]*)\\\\.apk$\",\"matchGroupToUse\":\"1\"}"
+  }
+]

@@ -63,28 +63,41 @@ A sophisticated, automated pipeline that builds ready-to-install Morphe applicat
 
 ## 📲 Auto-Updates via Obtainium
 
-All builds are published to the single rolling release tag **`latest`**, with one newest APK per app. Add each app to [Obtainium](https://github.com/ImranR98/Obtainium) with:
+All builds are published to the single rolling release tag **`latest`**, with one newest APK per app. Since the tag itself carries no version, the configs below use Obtainium's HTML source and read each app's version from its APK filename.
+
+### Method 1 — One-tap import (recommended)
+
+[![Get it on Obtainium](obtainium/badge_obtainium.png)](https://apps.obtainium.imranr.dev/redirect?r=obtainium://apps/%5B%7B%22id%22%3A%22com.google.android.youtube%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2Fteyd%2FMorphe-AutoBuilds%2Freleases%2Flatest%22%2C%22author%22%3A%22teyd%22%2C%22name%22%3A%22YouTube%20%28Morphe%29%22%2C%22overrideSource%22%3A%22HTML%22%2C%22additionalSettings%22%3A%22%7B%5C%22apkFilterRegEx%5C%22%3A%5C%22youtube-arm64-v8a-morphe-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22customLinkFilterRegex%5C%22%3A%5C%22youtube-arm64-v8a-morphe-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22-v%28%5C%5C%5C%5Cd%2B%5C%5C%5C%5C.%5C%5C%5C%5Cd%5B%5E%2F%5D%2A%29%5C%5C%5C%5C.apk%24%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%221%5C%22%7D%22%7D%2C%7B%22id%22%3A%22com.google.android.apps.youtube.music%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2Fteyd%2FMorphe-AutoBuilds%2Freleases%2Flatest%22%2C%22author%22%3A%22teyd%22%2C%22name%22%3A%22YouTube%20Music%20%28Morphe%29%22%2C%22overrideSource%22%3A%22HTML%22%2C%22additionalSettings%22%3A%22%7B%5C%22apkFilterRegEx%5C%22%3A%5C%22youtube-music-arm64-v8a-morphe-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22customLinkFilterRegex%5C%22%3A%5C%22youtube-music-arm64-v8a-morphe-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22-v%28%5C%5C%5C%5Cd%2B%5C%5C%5C%5C.%5C%5C%5C%5Cd%5B%5E%2F%5D%2A%29%5C%5C%5C%5C.apk%24%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%221%5C%22%7D%22%7D%2C%7B%22id%22%3A%22com.reddit.frontpage%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2Fteyd%2FMorphe-AutoBuilds%2Freleases%2Flatest%22%2C%22author%22%3A%22teyd%22%2C%22name%22%3A%22Reddit%20%28Morphe%29%22%2C%22overrideSource%22%3A%22HTML%22%2C%22additionalSettings%22%3A%22%7B%5C%22apkFilterRegEx%5C%22%3A%5C%22reddit-arm64-v8a-morphe-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22customLinkFilterRegex%5C%22%3A%5C%22reddit-arm64-v8a-morphe-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22-v%28%5C%5C%5C%5Cd%2B%5C%5C%5C%5C.%5C%5C%5C%5Cd%5B%5E%2F%5D%2A%29%5C%5C%5C%5C.apk%24%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%221%5C%22%7D%22%7D%2C%7B%22id%22%3A%22com.twitter.android%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2Fteyd%2FMorphe-AutoBuilds%2Freleases%2Flatest%22%2C%22author%22%3A%22teyd%22%2C%22name%22%3A%22X%20%28Twitter%29%20%28Morphe%29%22%2C%22overrideSource%22%3A%22HTML%22%2C%22additionalSettings%22%3A%22%7B%5C%22apkFilterRegEx%5C%22%3A%5C%22x-new-arm64-v8a-piko-patches-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22customLinkFilterRegex%5C%22%3A%5C%22x-new-arm64-v8a-piko-patches-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22-v%28%5C%5C%5C%5Cd%2B%5C%5C%5C%5C.%5C%5C%5C%5Cd%5B%5E%2F%5D%2A%29%5C%5C%5C%5C.apk%24%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%221%5C%22%7D%22%7D%2C%7B%22id%22%3A%22com.instagram.android%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2Fteyd%2FMorphe-AutoBuilds%2Freleases%2Flatest%22%2C%22author%22%3A%22teyd%22%2C%22name%22%3A%22Instagram%20%28Morphe%29%22%2C%22overrideSource%22%3A%22HTML%22%2C%22additionalSettings%22%3A%22%7B%5C%22apkFilterRegEx%5C%22%3A%5C%22instagram-arm64-v8a-piko-patches-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22customLinkFilterRegex%5C%22%3A%5C%22instagram-arm64-v8a-piko-patches-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22-v%28%5C%5C%5C%5Cd%2B%5C%5C%5C%5C.%5C%5C%5C%5Cd%5B%5E%2F%5D%2A%29%5C%5C%5C%5C.apk%24%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%221%5C%22%7D%22%7D%2C%7B%22id%22%3A%22com.zhiliaoapp.musically%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2Fteyd%2FMorphe-AutoBuilds%2Freleases%2Flatest%22%2C%22author%22%3A%22teyd%22%2C%22name%22%3A%22TikTok%20%28Morphe%29%22%2C%22overrideSource%22%3A%22HTML%22%2C%22additionalSettings%22%3A%22%7B%5C%22apkFilterRegEx%5C%22%3A%5C%22tiktok-arm64-v8a-morphe-patches-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22customLinkFilterRegex%5C%22%3A%5C%22tiktok-arm64-v8a-morphe-patches-v.%2A%5C%5C%5C%5C.apk%5C%22%2C%5C%22versionExtractionRegEx%5C%22%3A%5C%22-v%28%5C%5C%5C%5Cd%2B%5C%5C%5C%5C.%5C%5C%5C%5Cd%5B%5E%2F%5D%2A%29%5C%5C%5C%5C.apk%24%5C%22%2C%5C%22matchGroupToUse%5C%22%3A%5C%221%5C%22%7D%22%7D%5D)
+
+Tap the badge on your phone (or open the link) to import all 6 apps at once with filters and version extraction pre-filled — confirm the dialog and you're done. No Obtainium installed? The link falls back to a download prompt.
+
+Alternative without the link: in Obtainium, open the Import/Export page and import the file [`obtainium/apps.json`](obtainium/apps.json) from this repo.
+
+### Method 2 — Manual setup
+
+Add one entry per app in [Obtainium](https://github.com/ImranR98/Obtainium) with:
 
 | Field | Value |
 | :--- | :--- |
-| **App Source URL** | `https://github.com/teyd/Morphe-AutoBuilds` |
-| **Override Source** | GitHub Releases (HTML is fine) |
-| **Filter Release Titles by Regex** | leave empty for all, or narrow when needed |
-| **APK Filter Regex** | per-app regex from the table below |
-| **Version Extraction** | `-v([\d.]+)` (captures the version from the APK filename) |
+| **App Source URL** | `https://github.com/teyd/Morphe-AutoBuilds/releases/latest` |
+| **Override Source** | `HTML` (required — auto-detection would pick GitHub, whose `latest` tag has no version) |
+| **APK Filter Regex** | per-app regex from the table below (no `^$` anchors — Obtainium matches against the full download URL) |
+| **Custom APK Link Filter** | same per-app regex |
+| **Version Extraction** | `-v(\d+\.\d[^/]*)\.apk$` |
+| **Match Group** | `1` |
 
 > **Filename note:** APKs are named `<app>-<arch>-<output-name>-v<version>.apk`, where `<output-name>` is the `name` declared in `sources/<source>.json` — e.g. the `piko` and `piko-newx` sources both emit `piko-patches`. Use exactly the regexes below.
 
 | App | APK Filter Regex |
 | :--- | :--- |
-| YouTube | `^youtube-arm64-v8a-morphe-v.*\.apk$` |
-| YouTube Music | `^youtube-music-arm64-v8a-morphe-v.*\.apk$` |
-| Reddit | `^reddit-arm64-v8a-morphe-v.*\.apk$` |
-| X (Twitter) | `^x-new-arm64-v8a-piko-patches-v.*\.apk$` |
-| Instagram | `^instagram-arm64-v8a-piko-patches-v.*\.apk$` |
-| TikTok | `^tiktok-arm64-v8a-morphe-patches-v.*\.apk$` |
+| YouTube | `youtube-arm64-v8a-morphe-v.*\.apk` |
+| YouTube Music | `youtube-music-arm64-v8a-morphe-v.*\.apk` |
+| Reddit | `reddit-arm64-v8a-morphe-v.*\.apk` |
+| X (Twitter) | `x-new-arm64-v8a-piko-patches-v.*\.apk` |
+| Instagram | `instagram-arm64-v8a-piko-patches-v.*\.apk` |
+| TikTok | `tiktok-arm64-v8a-morphe-patches-v.*\.apk` |
 
-Replace `arm64-v8a` with `armeabi-v7a` or `universal` in the regex if you build other architectures. Builds without a version change are carried over untouched, so Obtainium only sees an update when an app's version (or patch set) actually changes.
+Builds without a version change are carried over untouched, so Obtainium only notifies for an app when that app's version (or patch set) actually changes.
 
 ---
 
@@ -118,6 +131,7 @@ Morphe-AutoBuilds/
 ├── src/                    # Core Python build logic
 ├── arch-config.json        # Architecture build matrix
 ├── patch-config.json       # App build configuration
+├── obtainium/              # Obtainium one-tap import (apps.json) + badge
 └── requirements.txt        # Project dependencies
 
 ```

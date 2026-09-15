@@ -2,10 +2,10 @@
 
 # 🔧 Morphe Non-Root Builder
 
-[![Daily Build](https://img.shields.io/github/actions/workflow/status/RookieEnough/Revanced-AutoBuilds/patch.yml?label=Daily%20Build&style=for-the-badge&color=2ea44f)](https://github.com/RookieEnough/Revanced-AutoBuilds/actions/workflows/patch.yml)
-[![Latest Release](https://img.shields.io/github/v/release/RookieEnough/Revanced-AutoBuilds?style=for-the-badge&label=Latest%20Release&color=0366d6)](https://github.com/RookieEnough/Revanced-AutoBuilds/releases/latest)
+[![Daily Build](https://img.shields.io/github/actions/workflow/status/teyd/Morphe-AutoBuilds/patch.yml?label=Daily%20Build&style=for-the-badge&color=2ea44f)](https://github.com/teyd/Morphe-AutoBuilds/actions/workflows/patch.yml)
+[![Latest Release](https://img.shields.io/github/v/release/teyd/Morphe-AutoBuilds?style=for-the-badge&label=Latest%20Release&color=0366d6)](https://github.com/teyd/Morphe-AutoBuilds/releases/latest)
 [![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/github/license/RookieEnough/Revanced-AutoBuilds?style=for-the-badge&color=orange)](LICENSE)
+[![License](https://img.shields.io/github/license/teyd/Morphe-AutoBuilds?style=for-the-badge&color=orange)](LICENSE)
 
 
 <p align="center">
@@ -27,9 +27,9 @@
 A sophisticated, automated pipeline that builds ready-to-install Morphe applications for <strong>non-rooted Android devices</strong>. This system automatically fetches the latest Morphe tools, downloads base APKs from multiple sources, applies patches, and publishes optimized APKs with architecture-specific builds.
 </p>
 
-[![View Latest Release](https://img.shields.io/badge/View%20Latest%20Release-0A0A0A?style=flat&logo=github&logoColor=white)](https://github.com/RookieEnough/Revanced-AutoBuilds/releases/latest)
-[![Report Bug](https://img.shields.io/badge/Report%20Bug-0A0A0A?style=flat&logo=github&logoColor=white)](https://github.com/RookieEnough/Revanced-AutoBuilds/issues)
-[![Request Feature](https://img.shields.io/badge/Request%20Feature-0A0A0A?style=flat&logo=github&logoColor=white)](https://github.com/RookieEnough/Revanced-AutoBuilds/issues)
+[![View Latest Release](https://img.shields.io/badge/View%20Latest%20Release-0A0A0A?style=flat&logo=github&logoColor=white)](https://github.com/teyd/Morphe-AutoBuilds/releases/latest)
+[![Report Bug](https://img.shields.io/badge/Report%20Bug-0A0A0A?style=flat&logo=github&logoColor=white)](https://github.com/RookieEnough/Morphe-AutoBuilds/issues)
+[![Request Feature](https://img.shields.io/badge/Request%20Feature-0A0A0A?style=flat&logo=github&logoColor=white)](https://github.com/RookieEnough/Morphe-AutoBuilds/issues)
 
 
 </div>
@@ -44,20 +44,47 @@ A sophisticated, automated pipeline that builds ready-to-install Morphe applicat
 
 | Mirror | Description | Link |
 | :--- | :--- | :--- |
-| **GitHub Releases** | Primary source. Contains all builds. | [**Download Latest Release**](https://RookieEnough/morphe-AutoBuilds/releases/latest) |
+| **GitHub Releases** | Primary source. Contains all builds. | [**Download Latest Release**](https://github.com/teyd/Morphe-AutoBuilds/releases/latest) |
 
 ### 📱 Supported Apps & Architectures
 
-| Application | arm64-v8a | armeabi-v7a | Universal |
-| :--- | :---: | :---: | :---: |
-| **YouTube** | ✅ | ✅ | ✅ |
-| **YouTube Music** | ✅ | ✅ | ❌ |
-| **Reddit** | ❌ | ❌ | ✅ |
-| **Twitter (X)** | ✅ | ❌ | ❌ |
-| **TikTok** | ❌ | ❌ | ✅ |
-| **Spotify** | ❌ | ❌ | ✅ |
+| Application | Source | arm64-v8a | Notes |
+| :--- | :--- | :---: | :--- |
+| **YouTube** | morphe | ✅ | `youtube` |
+| **YouTube Music** | morphe | ✅ | `youtube-music` |
+| **Reddit** | morphe | ✅ | `reddit` |
+| **X (Twitter)** | piko-newx | ✅ | `x-new` (crimera/piko-newx) |
+| **Instagram** | piko | ✅ | `instagram` |
+| **TikTok** | icysymmetra | ✅ | `tiktok` |
 
-*( Legend: ✅ = Available / ❌ = Not configured )*
+*( All apps ship `arm64-v8a` builds, named `<app>-arm64-v8a-<source>-v<version>.apk`. )*
+
+---
+
+## 📲 Auto-Updates via Obtainium
+
+All builds are published to the single rolling release tag **`latest`**, with one newest APK per app. Add each app to [Obtainium](https://github.com/ImranR98/Obtainium) with:
+
+| Field | Value |
+| :--- | :--- |
+| **App Source URL** | `https://github.com/teyd/Morphe-AutoBuilds` |
+| **Override Source** | GitHub Releases (HTML is fine) |
+| **Filter Release Titles by Regex** | leave empty for all, or narrow when needed |
+| **APK Filter Regex** | per-app regex from the table below |
+| **Version Extraction** | `-v([\d.]+)` (captures the version from the APK filename) |
+
+> **Filename note:** APKs are named `<app>-<arch>-<output-name>-v<version>.apk`, where `<output-name>` is the `name` declared in `sources/<source>.json` — e.g. the `piko` and `piko-newx` sources both emit `piko-patches`. Use exactly the regexes below.
+
+| App | APK Filter Regex |
+| :--- | :--- |
+| YouTube | `^youtube-arm64-v8a-morphe-v.*\.apk$` |
+| YouTube Music | `^youtube-music-arm64-v8a-morphe-v.*\.apk$` |
+| Reddit | `^reddit-arm64-v8a-morphe-v.*\.apk$` |
+| X (Twitter) | `^x-new-arm64-v8a-piko-patches-v.*\.apk$` |
+| Instagram | `^instagram-arm64-v8a-piko-patches-v.*\.apk$` |
+| TikTok | `^tiktok-arm64-v8a-morphe-patches-v.*\.apk$` |
+
+Replace `arm64-v8a` with `armeabi-v7a` or `universal` in the regex if you build other architectures. Builds without a version change are carried over untouched, so Obtainium only sees an update when an app's version (or patch set) actually changes.
 
 ---
 
@@ -78,7 +105,7 @@ This repository utilizes a robust Python-based pipeline to ensure high reliabili
 ## 🛠️ Repository Structure
 
 ```text
-revanced-nonroot/
+Morphe-AutoBuilds/
 ├── .github/workflows/      # GitHub Actions automation
 │   ├── patch.yml           # Daily automated builds (06:00 UTC)
 │   └── manual-patch.yml    # Manual trigger workflow
@@ -186,8 +213,8 @@ If you prefer to build the APKs on your own machine, follow these steps.
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/RookieEnough/morphe-AutoBuilds.git
-cd morphe-nonroot
+git clone https://github.com/teyd/Morphe-AutoBuilds.git
+cd Morphe-AutoBuilds
 
 ```
 
@@ -241,6 +268,41 @@ python -m src
 * Option to update the public release or just build artifacts.
 
 
+
+---
+
+## 🔄 Syncing with Upstream (RookieEnough)
+
+This repository is a **fork** of [RookieEnough/Morphe-AutoBuilds](https://github.com/RookieEnough/Morphe-AutoBuilds). Upstream is configured **fetch-only** — nothing is ever pushed, committed, or opened as a PR to RookieEnough's repo.
+
+When upstream fixes or improves something (workflows, `src/`, `scripts/`), pull it in:
+
+```bash
+git fetch upstream
+git merge upstream/main          # or: git rebase upstream/main
+# resolve conflicts (see below), test locally, then:
+git push origin main
+```
+
+**Conflict rules** — this fork only diverges in build configuration, so conflicts should stay confined to:
+
+| File | Our version |
+| :--- | :--- |
+| `patch-config.json` | 6 apps: youtube, youtube-music, reddit (morphe), x-new (piko-newx), instagram (piko), tiktok (icysymmetra) |
+| `arch-config.json` | all 6 apps with `arm64-v8a` |
+| `patches/*.txt` | our per-app include/exclude rules |
+| `README.md` | fork badges, app table, Obtainium guide |
+
+Everything else (`src/`, `scripts/`, `.github/workflows/`, `sources/`, `apps/`) is kept **identical to upstream** on purpose, so merges stay trivial. If a change is needed there, it belongs upstream — if RookieEnough won't take it, keep the local edit as small and separate as possible.
+
+Verify the safety rails at any time:
+
+```bash
+git remote -v
+# origin    ...github.com/teyd/Morphe-AutoBuilds.git     (fetch + push)
+# upstream  ...github.com/RookieEnough/Morphe-AutoBuilds.git (fetch)
+# upstream  no_push
+```
 
 ---
 

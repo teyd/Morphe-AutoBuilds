@@ -1,0 +1,6 @@
+# X (Twitter) via crimera/piko-newx patches for Morphe.
+#
+# Empty rule set = all patches included by default (Morphe/ReVanced default).
+# Add lines below with prefixes to customize:
+#   + patch-name   force-include a patch
+#   - patch-name   exclude a patch
